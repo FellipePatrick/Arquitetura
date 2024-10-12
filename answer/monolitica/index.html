@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor</title>
+</head>
+<body>
+    <input type="number" placeholder="Digite o numero">
+    <button onclick="converte()">converter</button>
+    <h5>historico</h5>
+    <p></p>
+    <script>
+        const historico = [];
+        const ul = document.createElement('ul');
+        function converte(){
+            const input = document.querySelector('input');
+            const valor = input.value;
+            const celsius = valor;
+            const fahrenheit = (celsius * 9/5) + 32;
+            historico.push({celsius, fahrenheit});
+            const p = document.querySelector('p');
+            p.innerHTML = `Celsius: ${celsius} Fahrenheit: ${fahrenheit}`;
+            historico.push(`Celsius: ${celsius} Fahrenheit: ${fahrenheit}`);
+            ul.innerHTML = '';
+            historico.forEach((item) => {
+                const li = document.createElement('li');
+                li.innerHTML = item;
+                ul.appendChild(li);
+            });
+            document.body.appendChild(ul);
+        }
+        
+    </script>
+</body>
+</html>
